@@ -20,6 +20,12 @@ class ViewController: UIViewController {
         }
     }
     
+    var categoryName = ""
+    var displayValue = ""
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +46,35 @@ class ViewController: UIViewController {
         }
         
     }
+    // MARK: - добавляем логику для кнопки "сброс"
+    @IBAction func resetButton(_ sender: UIButton) {
+        displaylabel.text = "0"
+        stillTyping = false
+    }
+    
+    @IBAction func categoryPressed(_ sender: UIButton) {
+        categoryName = sender.currentTitle!
+        displayValue = displaylabel.text!
+        displaylabel.text = "0"
+        stillTyping = false
+    }
     
 }
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        return cell
+    }
+    
+    
+}
+
 
