@@ -37,7 +37,10 @@ class ViewController: UIViewController {
         
         // делаем проверку в displaylabel
         if stillTyping {
-            if displaylabel.text!.count  < 10 {
+            if displaylabel.text == "0" {
+                displaylabel.text = ""
+        }
+            if displaylabel.text!.count < 15 {
                 displaylabel.text = displaylabel.text! + number
             }
         } else {
