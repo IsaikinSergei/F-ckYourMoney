@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		EA4F3AB12652AAC50091E2DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4F3AB02652AAC50091E2DC /* Assets.xcassets */; };
 		EA4F3AB42652AAC50091E2DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4F3AB22652AAC50091E2DC /* LaunchScreen.storyboard */; };
 		EA4F3ABC265BD73A0091E2DC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4F3ABB265BD73A0091E2DC /* CustomTableViewCell.swift */; };
+		EA4F3ABF26602FFC0091E2DC /* Снимок экрана 2021-05-27 в 23.51.09.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4F3ABE26602FFC0091E2DC /* Снимок экрана 2021-05-27 в 23.51.09.png */; };
 		F4F5FD8AFE415F0CAA09A3E3 /* Pods_F_ckYourMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EBE002365D3D19DA67FD6D /* Pods_F_ckYourMoney.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		EA4F3AB32652AAC50091E2DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA4F3AB52652AAC50091E2DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA4F3ABB265BD73A0091E2DC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		EA4F3ABE26602FFC0091E2DC /* Снимок экрана 2021-05-27 в 23.51.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2021-05-27 в 23.51.09.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,13 +52,13 @@
 				E46EFDE7A1A06675A80E547F /* Pods-F@ckYourMoney.debug.xcconfig */,
 				60841181E1A751F479DE34AE /* Pods-F@ckYourMoney.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		EA4F3A9B2652AAB50091E2DC = {
 			isa = PBXGroup;
 			children = (
+				EA4F3ABD26602FB80091E2DC /* Screenshots */,
 				EA4F3AA62652AAB50091E2DC /* F@ckYourMoney */,
 				EA4F3AA52652AAB50091E2DC /* Products */,
 				C9D6717B80F11E24EFA5EAB3 /* Pods */,
@@ -85,6 +87,14 @@
 				EA4F3AB52652AAC50091E2DC /* Info.plist */,
 			);
 			path = "F@ckYourMoney";
+			sourceTree = "<group>";
+		};
+		EA4F3ABD26602FB80091E2DC /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				EA4F3ABE26602FFC0091E2DC /* Снимок экрана 2021-05-27 в 23.51.09.png */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 		FC70EDC7AA1D96C629B930D1 /* Frameworks */ = {
@@ -157,6 +167,7 @@
 				EA4F3AB42652AAC50091E2DC /* LaunchScreen.storyboard in Resources */,
 				EA4F3AB12652AAC50091E2DC /* Assets.xcassets in Resources */,
 				EA4F3AAF2652AAB50091E2DC /* Main.storyboard in Resources */,
+				EA4F3ABF26602FFC0091E2DC /* Снимок экрана 2021-05-27 в 23.51.09.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
