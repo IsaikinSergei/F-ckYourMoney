@@ -15,6 +15,7 @@
 		EA4F3AB42652AAC50091E2DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4F3AB22652AAC50091E2DC /* LaunchScreen.storyboard */; };
 		EA4F3ABC265BD73A0091E2DC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4F3ABB265BD73A0091E2DC /* CustomTableViewCell.swift */; };
 		EA4F3ABF26602FFC0091E2DC /* Снимок экрана 2021-05-27 в 23.51.09.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4F3ABE26602FFC0091E2DC /* Снимок экрана 2021-05-27 в 23.51.09.png */; };
+		EA4F3AC12660E3D10091E2DC /* SpendingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4F3AC02660E3D10091E2DC /* SpendingModel.swift */; };
 		F4F5FD8AFE415F0CAA09A3E3 /* Pods_F_ckYourMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EBE002365D3D19DA67FD6D /* Pods_F_ckYourMoney.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		EA4F3AB52652AAC50091E2DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA4F3ABB265BD73A0091E2DC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		EA4F3ABE26602FFC0091E2DC /* Снимок экрана 2021-05-27 в 23.51.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2021-05-27 в 23.51.09.png"; sourceTree = "<group>"; };
+		EA4F3AC02660E3D10091E2DC /* SpendingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				EA4F3AA72652AAB50091E2DC /* AppDelegate.swift */,
 				EA4F3AA92652AAB50091E2DC /* SceneDelegate.swift */,
 				EA4F3AAB2652AAB50091E2DC /* ViewController.swift */,
+				EA4F3AC02660E3D10091E2DC /* SpendingModel.swift */,
 				EA4F3ABB265BD73A0091E2DC /* CustomTableViewCell.swift */,
 				EA4F3AAD2652AAB50091E2DC /* Main.storyboard */,
 				EA4F3AB02652AAC50091E2DC /* Assets.xcassets */,
@@ -223,6 +226,7 @@
 				EA4F3AAC2652AAB50091E2DC /* ViewController.swift in Sources */,
 				EA4F3AA82652AAB50091E2DC /* AppDelegate.swift in Sources */,
 				EA4F3ABC265BD73A0091E2DC /* CustomTableViewCell.swift in Sources */,
+				EA4F3AC12660E3D10091E2DC /* SpendingModel.swift in Sources */,
 				EA4F3AAA2652AAB50091E2DC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

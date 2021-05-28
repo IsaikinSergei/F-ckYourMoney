@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
 
+    let realm = try! Realm()
+    
     @IBOutlet weak var displaylabel: UILabel!
     var stillTyping = false
     
@@ -21,7 +24,7 @@ class ViewController: UIViewController {
     }
     
     var categoryName = ""
-    var displayValue = ""
+    var displayValue: Int = 1
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -57,9 +60,17 @@ class ViewController: UIViewController {
     
     @IBAction func categoryPressed(_ sender: UIButton) {
         categoryName = sender.currentTitle!
-        displayValue = displaylabel.text!
+        displayValue = Int(displaylabel.text!)!
         displaylabel.text = "0"
         stillTyping = false
+        
+        // создаем экземпляр клссаа(модели данных)
+        let value = Spending(value: ["\(categoryName)", displayValue])
+        
+        // делаем запись в базу данных Realm
+        try! realm.write {
+            realm.add(value)
+        }
     }
     
 }
