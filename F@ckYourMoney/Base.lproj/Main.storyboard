@@ -77,6 +77,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="hbn-ej-ISN"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8C7-iV-MTZ"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxh-SE-bwJ">
                                 <rect key="frame" x="258" y="411" width="135" height="79"/>

@@ -11,6 +11,7 @@ import RealmSwift
 class ViewController: UIViewController {
 
     let realm = try! Realm()
+    var spendingArray: Results<Spending>!
     
     @IBOutlet weak var displaylabel: UILabel!
     var stillTyping = false
@@ -31,6 +32,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        spendingArray = realm.objects(Spending.self)
         
     }
 
@@ -79,11 +82,27 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return spendingArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+        
+        let spending = spendingArray[indexPath.row]
+        
+        cell.recordCategory.text = spending.category
+        cell.recordCost.text = "\(spending.cost)"
+        
+        // перебираем картинки для каждой категории с помощью конструкции switch
+        switch spending.category {
+        case "Еда": cell.recordImage.image = #imageLiteral(resourceName: "Category_Еда")
+        case "Одежда": cell.recordImage.image = #imageLiteral(resourceName: "Category_Одежда")
+        case "Связь": cell.recordImage.image = #imageLiteral(resourceName: "Category_Связь")
+        case "Досуг": cell.recordImage.image = #imageLiteral(resourceName: "Category_Досуг")
+        case "Красота": cell.recordImage.image = #imageLiteral(resourceName: "Category_Красота")
+        case "Авто": cell.recordImage.image = #imageLiteral(resourceName: "Category_Авто")
+        default: cell.recordImage.image = #imageLiteral(resourceName: "Display")
+        }
         
         return cell
     }
