@@ -74,6 +74,8 @@ class ViewController: UIViewController {
         try! realm.write {
             realm.add(value)
         }
+        // перезагружаем(обновляем) таблицу после нажатия на кнопку категории и записи в БД Realm
+        tableView.reloadData()
     }
     
 }
@@ -107,7 +109,34 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+//    func tableView(_ tableView: UITableView, editActionForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//
+//        let editingRow = spendingArray[indexPath.row]
+//        let deleteAction = UITableViewRowAction(style: .destructive
+//                                                , title: "Удалить") { (_, _) in
+//            // удаляем запись из базы данных Realm
+//            try! self.realm.write {
+//                self.realm.delete(editingRow)
+//                // перезагружаем(обновляем) таблицу после нажатия на кнопку удалить
+//                tableView.reloadData()
+//            }
+//        }
+//
+//        return [deleteAction]
+//    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let editingRow = spendingArray[indexPath.row]
+            
+            // удаляем запись из базы данных Realm
+            try! self.realm.write {
+                self.realm.delete(editingRow)
+                
+                // перезагружаем(обновляем) таблицу после смахивания влево и нажатия на кнопку Delete
+                tableView.reloadData()
+            }
+        }
+    }
 }
-
 
