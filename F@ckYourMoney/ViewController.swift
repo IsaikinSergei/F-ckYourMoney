@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         displaylabel.text = "0"
         stillTyping = false
     }
-    
+    // MARK: - добавляем логику для кнопок выбора категорий
     @IBAction func categoryPressed(_ sender: UIButton) {
         categoryName = sender.currentTitle!
         displayValue = Int(displaylabel.text!)!
@@ -78,6 +78,37 @@ class ViewController: UIViewController {
         tableView.reloadData()
     }
     
+    // MARK: - добавляем alertController и логику по нажатию на кнопку "Установить лимит"
+    @IBAction func limitPressed(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Установить лимит", message: "Введите сумму и количество дней", preferredStyle: .alert)
+        let alertInstall = UIAlertAction(title: "Установить", style: .default) { action in
+            
+            
+            let tfsum = alertController.textFields?[0].text
+            print(tfsum!)
+            
+            let tfday = alertController.textFields?[1].text
+            print(tfday!)
+        }
+        
+        alertController.addTextField { (money) in
+            money.placeholder = "Сумма"
+            money.keyboardType = .asciiCapableNumberPad
+        }
+        
+        alertController.addTextField { (day) in
+            day.placeholder = "Количество дней"
+            day.keyboardType = .asciiCapableNumberPad
+        }
+        
+        let alertCancel = UIAlertAction(title: "Отмена", style: .default) { _ in }
+        
+        // вызываем наши действия по нажатию на кноки Alert контроллера
+        alertController.addAction(alertInstall)
+        alertController.addAction(alertCancel)
+        
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
