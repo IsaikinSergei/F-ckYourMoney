@@ -262,7 +262,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jao-JM-AfZ" userLabel="View_labels">
                                 <rect key="frame" x="20" y="176" width="165" height="314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лимит в месяц:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8c-8R-P9a">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лимит:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8c-8R-P9a">
                                         <rect key="frame" x="8" y="18" width="149" height="21"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -577,6 +577,9 @@
                     <navigationItem key="navigationItem" title="F@ckYourMoney" id="tFZ-Z1-638"/>
                     <connections>
                         <outlet property="displaylabel" destination="omD-EV-LGl" id="n2h-N6-loD"/>
+                        <outlet property="howManyCanSpend" destination="des-OD-6ST" id="GW2-1J-wl5"/>
+                        <outlet property="limitLabel" destination="Dcc-4b-dAw" id="xT1-SG-cNx"/>
+                        <outlet property="spendByCheck" destination="aVD-MH-vrh" id="jkC-aY-1iD"/>
                         <outlet property="tableView" destination="RIb-3r-qUG" id="a9k-dH-it5"/>
                         <outletCollection property="numberFromKeyboard" destination="cxK-x7-GSg" collectionClass="NSMutableArray" id="qip-V5-rwa"/>
                         <outletCollection property="numberFromKeyboard" destination="E7A-uj-j5a" collectionClass="NSMutableArray" id="Nej-JX-hg6"/>

@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     let realm = try! Realm()
     var spendingArray: Results<Spending>!
     
+    @IBOutlet weak var limitLabel: UILabel!
+    @IBOutlet weak var howManyCanSpend: UILabel!
+    @IBOutlet weak var spendByCheck: UILabel!
+    
     @IBOutlet weak var displaylabel: UILabel!
     var stillTyping = false
     
@@ -85,10 +89,22 @@ class ViewController: UIViewController {
             
             
             let tfsum = alertController.textFields?[0].text
-            print(tfsum!)
+            self.limitLabel.text = tfsum
+            
             
             let tfday = alertController.textFields?[1].text
-            print(tfday!)
+            if let day = tfday {
+                let dateNow = Date()
+                let lastDay: Date = dateNow.addingTimeInterval(60*60*24*Double(day)!)
+                
+                // создаем экземпляр клссаа(модели данных)
+                let value = Limit(value: [self.limitLabel.text, dateNow, lastDay])
+                
+                // делаем запись в базу данных Realm
+                try! self.realm.write {
+                    self.realm.add(value)
+                }
+            }
         }
         
         alertController.addTextField { (money) in
