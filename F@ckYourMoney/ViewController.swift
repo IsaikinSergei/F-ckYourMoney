@@ -93,16 +93,32 @@ class ViewController: UIViewController {
             
             
             let tfday = alertController.textFields?[1].text
+            
+            // делаем проверку на nil чтобы избежать падения приложения
+            guard tfday != "" else { return }
+            
             if let day = tfday {
                 let dateNow = Date()
                 let lastDay: Date = dateNow.addingTimeInterval(60*60*24*Double(day)!)
                 
-                // создаем экземпляр клссаа(модели данных)
-                let value = Limit(value: [self.limitLabel.text, dateNow, lastDay])
+                // создаем переменную которая будет содержать все значения базы данных Limit
+                let limit = self.realm.objects(Limit.self)
                 
-                // делаем запись в базу данных Realm
-                try! self.realm.write {
-                    self.realm.add(value)
+                // делаем проверку, если значений лимита нет, то делаем запись в БД, иначе делаем перезапись значения лимита в БД
+                if limit.isEmpty == true {
+                    // создаем экземпляр клссаа(модели данных)
+                    let value = Limit(value: [self.limitLabel.text!, dateNow, lastDay])
+                    
+                    // делаем запись в базу данных Realm
+                    try! self.realm.write {
+                        self.realm.add(value)
+                    }
+                } else {
+                    try! self.realm.write {
+                        limit[0].limitSum = self.limitLabel.text!
+                        limit[0].limitDate = dateNow as NSDate
+                        limit[0].limitLastDay = lastDay as NSDate
+                    }
                 }
             }
         }
