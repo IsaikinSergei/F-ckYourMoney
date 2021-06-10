@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         spendingArray = realm.objects(Spending.self)
+        leftLabels()
         
     }
 
@@ -140,6 +141,31 @@ class ViewController: UIViewController {
         alertController.addAction(alertCancel)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func leftLabels() {
+        
+        let limit = self.realm.objects(Limit.self)
+        
+        limitLabel.text = limit[0].limitSum
+        
+        let calendar = Calendar.current
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        
+        let firstDay = limit[0].limitDate as Date
+        let lastDay = limit[0].limitLastDay as Date
+        
+        let firstComponents = calendar.dateComponents([.year, .month, .day], from: firstDay)
+        let lastComponents = calendar.dateComponents([.year, .month, .day], from: lastDay)
+        
+        let startDay = formatter.date(from: "\(firstComponents.year!)/\(firstComponents.month!)/\(firstComponents.day!) 00:00")
+        let endDay = formatter.date(from: "\(lastComponents.year!)/\(lastComponents.month!)/\(lastComponents.day!) 23:59")
+        
+        let filteredLimit: Int = realm.objects(Spending.self).filter("self.date >= %@ && self.date <= %@", startDay, endDay).sum(ofProperty: "cost")
+        
+        limitLabel.text = "\(filteredLimit)"
     }
 }
 
