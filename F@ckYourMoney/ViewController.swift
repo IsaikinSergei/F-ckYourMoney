@@ -143,6 +143,7 @@ class ViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    // MARK: - добавляем метод работы с лэйблами и их значениями
     func leftLabels() {
         
         let limit = self.realm.objects(Limit.self)
@@ -160,12 +161,20 @@ class ViewController: UIViewController {
         let firstComponents = calendar.dateComponents([.year, .month, .day], from: firstDay)
         let lastComponents = calendar.dateComponents([.year, .month, .day], from: lastDay)
         
-        let startDay = formatter.date(from: "\(firstComponents.year!)/\(firstComponents.month!)/\(firstComponents.day!) 00:00")
-        let endDay = formatter.date(from: "\(lastComponents.year!)/\(lastComponents.month!)/\(lastComponents.day!) 23:59")
+        let startDate = formatter.date(from: "\(firstComponents.year!)/\(firstComponents.month!)/\(firstComponents.day!) 00:00")
+        let endDate = formatter.date(from: "\(lastComponents.year!)/\(lastComponents.month!)/\(lastComponents.day!) 23:59")
         
-        let filteredLimit: Int = realm.objects(Spending.self).filter("self.date >= %@ && self.date <= %@", startDay, endDay).sum(ofProperty: "cost")
+        let filteredLimit: Int = realm.objects(Spending.self).filter("self.date >= %@ && self.date <= %@", startDate, endDate).sum(ofProperty: "cost")
         
-        limitLabel.text = "\(filteredLimit)"
+        spendByCheck.text = "\(filteredLimit)"
+        
+        // добавляем логику вычисления значений лэйблов
+        let a = Int(limitLabel.text!)!
+        let b = Int(spendByCheck.text!)!
+        let c = a - b
+        
+        howManyCanSpend.text = "\(c)"
+        
     }
 }
 
