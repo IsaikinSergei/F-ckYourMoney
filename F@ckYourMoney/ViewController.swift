@@ -122,6 +122,8 @@ class ViewController: UIViewController {
                     }
                 }
             }
+            // вызываем функцию leftLabels для того, чтобы после установления лимит обновлялись и другие лэйблы
+            self.leftLabels()
         }
         
         alertController.addTextField { (money) in
