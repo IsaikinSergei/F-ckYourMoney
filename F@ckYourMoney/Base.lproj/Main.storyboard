@@ -369,7 +369,7 @@
                                     <constraint firstAttribute="trailing" secondItem="zos-Q2-PW2" secondAttribute="trailing" constant="1" id="faf-bG-Szp"/>
                                     <constraint firstItem="I8c-8R-P9a" firstAttribute="height" secondItem="Jao-JM-AfZ" secondAttribute="height" multiplier="0.066879" id="hSR-ta-gwd"/>
                                     <constraint firstItem="aKN-NN-gOj" firstAttribute="top" secondItem="JIb-KJ-Ls5" secondAttribute="bottom" constant="16" id="j6L-dT-mie"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aKN-NN-gOj" secondAttribute="trailing" symbolic="YES" id="mbu-OV-szW"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aKN-NN-gOj" secondAttribute="trailing" constant="20" symbolic="YES" id="mbu-OV-szW"/>
                                     <constraint firstAttribute="trailing" secondItem="JIb-KJ-Ls5" secondAttribute="trailing" constant="8" id="mjg-5z-nEZ"/>
                                     <constraint firstItem="I8c-8R-P9a" firstAttribute="width" secondItem="Jao-JM-AfZ" secondAttribute="width" multiplier="0.90303" id="nkL-Sb-itM"/>
                                     <constraint firstItem="zos-Q2-PW2" firstAttribute="leading" secondItem="Jao-JM-AfZ" secondAttribute="leading" constant="8" id="o21-7b-QHL"/>
@@ -576,6 +576,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="F@ckYourMoney" id="tFZ-Z1-638"/>
                     <connections>
+                        <outlet property="allSpending" destination="EhA-9r-jp9" id="08B-tg-YdJ"/>
                         <outlet property="displaylabel" destination="omD-EV-LGl" id="n2h-N6-loD"/>
                         <outlet property="howManyCanSpend" destination="des-OD-6ST" id="GW2-1J-wl5"/>
                         <outlet property="limitLabel" destination="Dcc-4b-dAw" id="xT1-SG-cNx"/>

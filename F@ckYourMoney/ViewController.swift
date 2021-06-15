@@ -16,8 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var limitLabel: UILabel!
     @IBOutlet weak var howManyCanSpend: UILabel!
     @IBOutlet weak var spendByCheck: UILabel!
-    
     @IBOutlet weak var displaylabel: UILabel!
+    @IBOutlet weak var allSpending: UILabel!
+    
     var stillTyping = false
     
     @IBOutlet var numberFromKeyboard: [UIButton]! {
@@ -79,6 +80,9 @@ class ViewController: UIViewController {
         try! realm.write {
             realm.add(value)
         }
+        // вызываем функцию обновления всех лэйблов
+        leftLabels()
+        
         // перезагружаем(обновляем) таблицу после нажатия на кнопку категории и записи в БД Realm
         tableView.reloadData()
     }
@@ -90,13 +94,13 @@ class ViewController: UIViewController {
             
             
             let tfsum = alertController.textFields?[0].text
-            self.limitLabel.text = tfsum
-            
             
             let tfday = alertController.textFields?[1].text
             
             // делаем проверку на nil чтобы избежать падения приложения
-            guard tfday != "" else { return }
+            guard tfday != "" && tfsum != "" else { return }
+            
+            self.limitLabel.text = tfsum
             
             if let day = tfday {
                 let dateNow = Date()
@@ -177,6 +181,9 @@ class ViewController: UIViewController {
         
         howManyCanSpend.text = "\(c)"
         
+        let allSpend: Int = realm.objects(Spending.self).sum(ofProperty: "cost")
+        allSpending.text = "\(allSpend)"
+        
     }
 }
 
@@ -209,22 +216,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, editActionForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//
-//        let editingRow = spendingArray[indexPath.row]
-//        let deleteAction = UITableViewRowAction(style: .destructive
-//                                                , title: "Удалить") { (_, _) in
-//            // удаляем запись из базы данных Realm
-//            try! self.realm.write {
-//                self.realm.delete(editingRow)
-//                // перезагружаем(обновляем) таблицу после нажатия на кнопку удалить
-//                tableView.reloadData()
-//            }
-//        }
-//
-//        return [deleteAction]
-//    }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let editingRow = spendingArray[indexPath.row]
@@ -232,6 +223,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             // удаляем запись из базы данных Realm
             try! self.realm.write {
                 self.realm.delete(editingRow)
+                // вызываем функцию leftLabels после удаления записи из таблицы и БД для обновления всех лэйблов
+                leftLabels()
                 
                 // перезагружаем(обновляем) таблицу после смахивания влево и нажатия на кнопку Delete
                 tableView.reloadData()
