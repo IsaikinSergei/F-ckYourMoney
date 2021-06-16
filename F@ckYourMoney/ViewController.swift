@@ -197,7 +197,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
-        let spending = spendingArray[indexPath.row]
+        // добавляем в массив функцию sorted() для отображения трат в порядке сверху-вниз, т.е. каждая новая трата будет отображаться вверху tableView
+        let spending = spendingArray.sorted(byKeyPath: "date", ascending: false)[indexPath.row]
         
         cell.recordCategory.text = spending.category
         cell.recordCost.text = "\(spending.cost)"
@@ -218,7 +219,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let editingRow = spendingArray[indexPath.row]
+            // добавляем в массив функцию sorted() для отображения трат в порядке сверху-вниз, т.е. каждая новая трата будет отображаться вверху tableView
+            let editingRow = spendingArray.sorted(byKeyPath: "date", ascending: false)[indexPath.row]
             
             // удаляем запись из базы данных Realm
             try! self.realm.write {
