@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         
         spendingArray = realm.objects(Spending.self)
         leftLabels()
+        spendingAllTime()
         
     }
 
@@ -82,6 +83,9 @@ class ViewController: UIViewController {
         }
         // вызываем функцию обновления всех лэйблов
         leftLabels()
+        
+        // вызываем функцию добавления и суммирования всех трат
+        spendingAllTime()
         
         // перезагружаем(обновляем) таблицу после нажатия на кнопку категории и записи в БД Realm
         tableView.reloadData()
@@ -154,6 +158,8 @@ class ViewController: UIViewController {
         
         let limit = self.realm.objects(Limit.self)
         
+        guard limit.isEmpty == false else { return }
+        
         limitLabel.text = limit[0].limitSum
         
         let calendar = Calendar.current
@@ -180,10 +186,16 @@ class ViewController: UIViewController {
         let c = a - b
         
         howManyCanSpend.text = "\(c)"
+
+    }
+    
+// MARK: - выносим отдельно метод spendingAllTime() добавления и суммирования всех трат
+    
+    func spendingAllTime() {
         
         let allSpend: Int = realm.objects(Spending.self).sum(ofProperty: "cost")
         allSpending.text = "\(allSpend)"
-        
+    
     }
 }
 
@@ -227,6 +239,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 self.realm.delete(editingRow)
                 // вызываем функцию leftLabels после удаления записи из таблицы и БД для обновления всех лэйблов
                 leftLabels()
+                // вызываем функцию spendingAllTime после удаления записи из таблицы и БД для обновления всех лэйблов
+                spendingAllTime()
                 
                 // перезагружаем(обновляем) таблицу после смахивания влево и нажатия на кнопку Delete
                 tableView.reloadData()
