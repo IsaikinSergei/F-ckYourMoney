@@ -173,8 +173,8 @@ class ViewController: UIViewController {
         let firstComponents = calendar.dateComponents([.year, .month, .day], from: firstDay)
         let lastComponents = calendar.dateComponents([.year, .month, .day], from: lastDay)
         
-        let startDate = formatter.date(from: "\(firstComponents.year!)/\(firstComponents.month!)/\(firstComponents.day!) 00:00")
-        let endDate = formatter.date(from: "\(lastComponents.year!)/\(lastComponents.month!)/\(lastComponents.day!) 23:59")
+        let startDate = formatter.date(from: "\(firstComponents.year!)/\(firstComponents.month!)/\(firstComponents.day!) 00:00") as Any
+        let endDate = formatter.date(from: "\(lastComponents.year!)/\(lastComponents.month!)/\(lastComponents.day!) 23:59") as Any
         
         let filteredLimit: Int = realm.objects(Spending.self).filter("self.date >= %@ && self.date <= %@", startDate, endDate).sum(ofProperty: "cost")
         
@@ -186,6 +186,43 @@ class ViewController: UIViewController {
         let c = a - b
         
         howManyCanSpend.text = "\(c)"
+        
+        // расходы за месяц: определяем текущую дату
+        let dateNow = Date()
+        
+        let dateComponentsNow = calendar.dateComponents([.year, .month, .day], from: dateNow)
+        
+        let lastDayMonth: Int
+        
+        // делаем проверку для високосного года с февралем 29 дней
+        if Int(dateComponentsNow.year!) % 4 == 0 && dateComponentsNow.month == 2 {
+            lastDayMonth = 29
+        } else {
+            // с помощью конструкции switch перебираем месяцы с количеством дней
+            switch dateComponentsNow.month {
+            case 1: lastDayMonth = 31
+            case 2: lastDayMonth = 28
+            case 3: lastDayMonth = 31
+            case 4: lastDayMonth = 30
+            case 5: lastDayMonth = 31
+            case 6: lastDayMonth = 30
+            case 7: lastDayMonth = 31
+            case 8: lastDayMonth = 31
+            case 9: lastDayMonth = 30
+            case 10: lastDayMonth = 31
+            case 11: lastDayMonth = 30
+            case 12: lastDayMonth = 31
+                
+            default: return
+            }
+        }
+        
+        let startDateMonth = formatter.date(from: "\(dateComponentsNow.year!)/\(dateComponentsNow.month!)/01 00:00") as Any
+        let endDateMonth = formatter.date(from: "\(dateComponentsNow.year!)/\(dateComponentsNow.month!)/\(lastDayMonth) 23:59") as Any
+        
+        let filteredMonth: Int = realm.objects(Spending.self).filter("self.date >= %@ && self.date <= %@", startDateMonth, endDateMonth).sum(ofProperty: "cost")
+        
+        print(filteredMonth)
 
     }
     
