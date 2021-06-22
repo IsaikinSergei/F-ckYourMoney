@@ -3,3 +3,4 @@
 # Screenshots
 ![](https://github.com/IsaikinSergei/F-ckYourMoney/blob/master/Screenshots/Снимок%20экрана%202021-06-06%20в%2022.25.53.png?raw=true)
 ![](https://github.com/IsaikinSergei/F-ckYourMoney/blob/master/Screenshots/Снимок%20экрана%202021-06-06%20в%2022.26.36.png?raw=true)
+![](https://github.com/IsaikinSergei/F-ckYourMoney/blob/master/Screenshots/Снимок%20экрана%202021-06-22%20в%2023.40.31.png?raw=true)
