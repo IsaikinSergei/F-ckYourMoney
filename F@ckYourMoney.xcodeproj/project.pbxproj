@@ -15,6 +15,7 @@
 		EA4F3AB42652AAC50091E2DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4F3AB22652AAC50091E2DC /* LaunchScreen.storyboard */; };
 		EA4F3ABC265BD73A0091E2DC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4F3ABB265BD73A0091E2DC /* CustomTableViewCell.swift */; };
 		EA4F3AC12660E3D10091E2DC /* SpendingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4F3AC02660E3D10091E2DC /* SpendingModel.swift */; };
+		EA6A1CCC2682748600D57F42 /* Снимок экрана 2021-06-22 в 23.40.31.png in Resources */ = {isa = PBXBuildFile; fileRef = EA6A1CCB2682748600D57F42 /* Снимок экрана 2021-06-22 в 23.40.31.png */; };
 		EAFD4E34266D4B33009A6B0A /* Снимок экрана 2021-06-06 в 22.26.36.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFD4E32266D4B33009A6B0A /* Снимок экрана 2021-06-06 в 22.26.36.png */; };
 		EAFD4E35266D4B33009A6B0A /* Снимок экрана 2021-06-06 в 22.25.53.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFD4E33266D4B33009A6B0A /* Снимок экрана 2021-06-06 в 22.25.53.png */; };
 		F4F5FD8AFE415F0CAA09A3E3 /* Pods_F_ckYourMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EBE002365D3D19DA67FD6D /* Pods_F_ckYourMoney.framework */; };
@@ -34,6 +35,7 @@
 		EA4F3AB52652AAC50091E2DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA4F3ABB265BD73A0091E2DC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		EA4F3AC02660E3D10091E2DC /* SpendingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingModel.swift; sourceTree = "<group>"; };
+		EA6A1CCB2682748600D57F42 /* Снимок экрана 2021-06-22 в 23.40.31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2021-06-22 в 23.40.31.png"; sourceTree = "<group>"; };
 		EAFD4E32266D4B33009A6B0A /* Снимок экрана 2021-06-06 в 22.26.36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2021-06-06 в 22.26.36.png"; sourceTree = "<group>"; };
 		EAFD4E33266D4B33009A6B0A /* Снимок экрана 2021-06-06 в 22.25.53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Снимок экрана 2021-06-06 в 22.25.53.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				EAFD4E33266D4B33009A6B0A /* Снимок экрана 2021-06-06 в 22.25.53.png */,
+				EA6A1CCB2682748600D57F42 /* Снимок экрана 2021-06-22 в 23.40.31.png */,
 				EAFD4E32266D4B33009A6B0A /* Снимок экрана 2021-06-06 в 22.26.36.png */,
 			);
 			path = Screenshots;
@@ -174,6 +177,7 @@
 				EA4F3AB12652AAC50091E2DC /* Assets.xcassets in Resources */,
 				EAFD4E34266D4B33009A6B0A /* Снимок экрана 2021-06-06 в 22.26.36.png in Resources */,
 				EA4F3AAF2652AAB50091E2DC /* Main.storyboard in Resources */,
+				EA6A1CCC2682748600D57F42 /* Снимок экрана 2021-06-22 в 23.40.31.png in Resources */,
 				EAFD4E35266D4B33009A6B0A /* Снимок экрана 2021-06-06 в 22.25.53.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
